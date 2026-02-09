@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Anniversary Bhaiya & Bhabhi 💐</title>
+
+<style>
+/* ================== BASIC RESET ================== */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI', sans-serif;
+}
+
+body{
+  overflow:hidden;
+}
+
+/* ================== SLIDER ================== */
+.slider{
+  display:flex;
+  width:400vw;
+  height:100vh;
+  transition:transform 1s ease-in-out;
+}
+
+.page{
+  width:100vw;
+  height:100vh;
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:40px;
+  color:white;
+}
+
+/* ================== COLOR THEMES ================== */
+.page1{ background:linear-gradient(135deg,#ff9a9e,#fad0c4); }
+.page2{ background:linear-gradient(135deg,#a1c4fd,#c2e9fb); }
+.page3{ background:linear-gradient(135deg,#ffecd2,#fcb69f); }
+.page4{ background:linear-gradient(135deg,#d4a5ff,#fbc2eb); }
+
+/* ================== TEXT ================== */
+h1{
+  font-size:3rem;
+  margin-bottom:15px;
+}
+h2{
+  font-size:2rem;
+  margin-bottom:10px;
+}
+p{
+  font-size:1.3rem;
+  max-width:850px;
+  line-height:1.7;
+}
+
+/* ================== BUTTON ================== */
+.next-btn{
+  margin-top:30px;
+  padding:12px 35px;
+  border:none;
+  border-radius:30px;
+  font-size:1.1rem;
+  cursor:pointer;
+  background:white;
+  color:#444;
+  transition:0.3s;
+}
+.next-btn:hover{
+  transform:scale(1.1);
+  background:#ffe1ec;
+}
+
+/* ================== ANIMATIONS ================== */
+.fade{ animation:fadeIn 2s ease; }
+.slideUp{ animation:slideUp 2s ease; }
+.zoom{ animation:zoom 1.8s ease; }
+.heartbeat{ animation:heartbeat 1.5s infinite; }
+.glow{ animation:glow 2s infinite alternate; }
+
+@keyframes fadeIn{
+  from{opacity:0;}
+  to{opacity:1;}
+}
+@keyframes slideUp{
+  from{transform:translateY(60px); opacity:0;}
+  to{transform:translateY(0); opacity:1;}
+}
+@keyframes zoom{
+  from{transform:scale(0.7); opacity:0;}
+  to{transform:scale(1); opacity:1;}
+}
+@keyframes heartbeat{
+  0%{transform:scale(1);}
+  50%{transform:scale(1.1);}
+  100%{transform:scale(1);}
+}
+@keyframes glow{
+  from{text-shadow:0 0 10px #fff;}
+  to{text-shadow:0 0 25px #ffebf0;}
+}
+
+/* ================== BALLOONS & HEARTS ================== */
+.float{
+  position:absolute;
+  bottom:-100px;
+  font-size:30px;
+  animation:floatUp 10s infinite;
+  opacity:0.7;
+}
+
+@keyframes floatUp{
+  0%{transform:translateY(0); opacity:1;}
+  100%{transform:translateY(-120vh); opacity:0;}
+}
+
+/* ================== MCQ ================== */
+.options{
+  margin-top:20px;
+  width:320px;
+}
+.option{
+  padding:12px;
+  margin:10px 0;
+  background:rgba(255,255,255,0.25);
+  border-radius:20px;
+  cursor:pointer;
+  transition:0.3s;
+}
+.option:hover{
+  background:rgba(255,255,255,0.4);
+}
+.option.correct{
+  background:white;
+  color:#1e3c72;
+  font-weight:bold;
+}
+
+/* ================== CONFETTI ================== */
+.confetti{
+  position:absolute;
+  width:8px;
+  height:8px;
+  background:white;
+  animation:confettiFall 3s linear;
+}
+
+@keyframes confettiFall{
+  0%{transform:translateY(0) rotate(0deg);}
+  100%{transform:translateY(100vh) rotate(360deg);}
+}
+
+/* ================== WISH BOX ================== */
+.wish-box{
+  background:rgba(255,255,255,0.2);
+  padding:35px;
+  border-radius:30px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================== FLOATING ELEMENTS ================== -->
+<div class="float" style="left:10%; animation-delay:0s;">🎈</div>
+<div class="float" style="left:30%; animation-delay:3s;">❤️</div>
+<div class="float" style="left:50%; animation-delay:1s;">🎈</div>
+<div class="float" style="left:70%; animation-delay:4s;">💖</div>
+<div class="float" style="left:90%; animation-delay:2s;">🎈</div>
+
+<div class="slider" id="slider">
+
+<!-- ================== PAGE 1 ================== -->
+<div class="page page1">
+  <h1 class="heartbeat">Happy Anniversary 💐</h1>
+
+  <!-- EDIT NAMES HERE -->
+  <h2 class="fade">Bhaiya & Bhabhi ❤️</h2>
+
+  <p class="slideUp">
+    Celebrating a beautiful journey of love, trust, and togetherness.
+  </p>
+
+  <p class="fade" style="margin-top:10px;font-size:1.4rem;">
+    📅 15th February
+  </p>
+
+  <button class="next-btn" onclick="nextPage()">Next ➡</button>
+</div>
+
+<!-- ================== PAGE 2 ================== -->
+<div class="page page2">
+  <h1 class="zoom">Fun Couple Question 💕</h1>
+  <p class="slideUp">What is Bhabhi’s favorite color?</p>
+
+  <div class="options slideUp">
+    <div class="option" onclick="selectOption(this,false)">❤️ Red</div>
+    <div class="option" onclick="selectOption(this,true)">💙 Blue</div>
+    <div class="option" onclick="selectOption(this,false)">💚 Green</div>
+    <div class="option" onclick="selectOption(this,false)">💜 Purple</div>
+  </div>
+
+  <button class="next-btn" onclick="nextPage()">Next ➡</button>
+</div>
+
+<!-- ================== PAGE 3 ================== -->
+<div class="page page3">
+  <h1 class="fade">Celebrate Together 🎉</h1>
+
+  <p class="slideUp">
+    💖 Mini Love Challenge 💖<br><br>
+    😊 Smile at each other<br>
+    🤝 Hold hands for 10 seconds<br>
+    💬 Say one sweet thing about each other
+  </p>
+
+  <button class="next-btn" onclick="nextPage()">Next ➡</button>
+</div>
+
+<!-- ================== PAGE 4 ================== -->
+<div class="page page4">
+  <h1 class="glow">With Love & Best Wishes ❤️</h1>
+
+  <div class="wish-box zoom">
+    <p>
+      Dear Bhaiya & Bhabhi,<br><br>
+      Your relationship is a beautiful example of love, patience,
+      friendship, and togetherness. May your life be filled with endless
+      happiness, laughter, and unforgettable moments.<br><br>
+      Wishing you many more years of love and togetherness 💕
+      <br><br>
+      <strong>Happy Anniversary – Forever Together 💖</strong>
+    </p>
+  </div>
+</div>
+
+</div>
+
+<script>
+let page = 0;
+const slider = document.getElementById("slider");
+
+function nextPage(){
+  if(page < 3){
+    page++;
+    slider.style.transform = `translateX(-${page*100}vw)`;
+  }
+}
+
+/* MCQ logic + confetti */
+function selectOption(el,isCorrect){
+  document.querySelectorAll('.option').forEach(o=>{
+    o.classList.remove('correct');
+  });
+
+  if(isCorrect){
+    el.classList.add('correct');
+    createConfetti();
+  }
+}
+
+/* Confetti effect */
+function createConfetti(){
+  for(let i=0;i<30;i++){
+    let conf=document.createElement("div");
+    conf.className="confetti";
+    conf.style.left=Math.random()*100+"vw";
+    conf.style.background=`hsl(${Math.random()*360},100%,70%)`;
+    document.body.appendChild(conf);
+    setTimeout(()=>conf.remove(),3000);
+  }
+}
+</script>
+
+</body>
+</html>
